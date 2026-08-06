@@ -1,0 +1,4108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COSMOS X - Source Code V1</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{font-family:Poppins,sans-serif;background:#020617;color:#fff;overflow-x:hidden}
+.space{position:fixed;inset:0;background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.85)),url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=2200&q=80') center/cover;z-index:-2}
+.stars{position:fixed;inset:0;background-image:radial-gradient(#fff 1px,transparent 1px),radial-gradient(cyan 1px,transparent 1px);background-size:120px 120px,220px 220px;opacity:.55;animation:stars 150s linear infinite;z-index:-1}
+@keyframes stars{to{transform:translateY(-1200px)}}
+header{position:fixed;top:0;width:100%;padding:18px;background:rgba(0,0,0,.3);backdrop-filter:blur(10px)}
+nav{max-width:1200px;margin:auto;display:flex;justify-content:space-between}
+.logo{font-size:2rem;font-weight:800;color:#49d8ff}
+nav ul{display:flex;list-style:none;gap:20px}
+nav a{text-decoration:none;color:#fff}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px}
+.hero h1{font-size:5rem;text-shadow:0 0 20px cyan}
+.hero p{max-width:850px;margin:20px 0;font-size:1.2rem}
+.btn{display:inline-block;padding:15px 35px;background:#49d8ff;color:#00111a;text-decoration:none;border-radius:40px;font-weight:700}
+.earth{width:300px;border-radius:50%;margin-top:40px;box-shadow:0 0 30px cyan}
+section{padding:100px 10%;max-width:1200px;margin:auto}
+.title{font-size:3rem;color:#49d8ff;margin-bottom:20px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.card{background:rgba(255,255,255,.08);padding:20px;border-radius:18px}
+</style>
+</head>
+<body>
+<div class="space"></div>
+<div class="stars"></div>
+<header>
+<nav>
+<div class="logo">COSMOS X</div>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Earth</a></li>
+<li><a href="#">Planets</a></li>
+<li><a href="#">Galaxy</a></li>
+</ul>
+</nav>
+</header>
+
+<section class="hero">
+<h1>EXPLORE THE UNIVERSE</h1>
+<p>Welcome to COSMOS X. This is the source-code version that we'll keep expanding.</p>
+<a class="btn" href="#earth">Launch Journey</a>
+<img class="earth" src="https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg" alt="Earth">
+</section>
+
+<section id="earth">
+<h2 class="title">🌍 Our Home Planet</h2>
+<p>Earth is the third planet from the Sun and the only known planet to support life.</p>
+<div class="cards">
+<div class="card"><h3>4.54B</h3><p>Years Old</p></div>
+<div class="card"><h3>71%</h3><p>Water</p></div>
+<div class="card"><h3>8B+</h3><p>Population</p></div>
+<div class="card"><h3>1</h3><p>Moon</p></div>
+</div>
+</section>
+
+</body>
+</html>
+<!-- =========================
+COSMOS-X V2
+PART 2
+SOLAR SYSTEM SECTION
+========================= -->
+
+<section id="solar-system" class="section">
+    <h2>🌌 Solar System Explorer</h2>
+
+    <p class="intro">
+        Explore the planets of our Solar System. 
+        Click on a planet to discover its secrets.
+    </p>
+
+    <div class="space-container">
+
+        <div class="sun">
+            ☀️
+        </div>
+
+        <div class="orbit mercury-orbit">
+            <div class="planet mercury" onclick="showPlanet('Mercury')">
+                ☿
+            </div>
+        </div>
+
+        <div class="orbit venus-orbit">
+            <div class="planet venus" onclick="showPlanet('Venus')">
+                ♀
+            </div>
+        </div>
+
+        <div class="orbit earth-orbit">
+            <div class="planet earth" onclick="showPlanet('Earth')">
+                🌎
+            </div>
+        </div>
+
+        <div class="orbit mars-orbit">
+            <div class="planet mars" onclick="showPlanet('Mars')">
+                ♂
+            </div>
+        </div>
+
+        <div class="orbit jupiter-orbit">
+            <div class="planet jupiter" onclick="showPlanet('Jupiter')">
+                ♃
+            </div>
+        </div>
+
+        <div class="orbit saturn-orbit">
+            <div class="planet saturn" onclick="showPlanet('Saturn')">
+                ♄
+            </div>
+        </div>
+
+        <div class="orbit uranus-orbit">
+            <div class="planet uranus" onclick="showPlanet('Uranus')">
+                ♅
+            </div>
+        </div>
+
+        <div class="orbit neptune-orbit">
+            <div class="planet neptune" onclick="showPlanet('Neptune')">
+                ♆
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="planet-info">
+
+        <h3>Click a planet</h3>
+
+        <p>
+            Select a planet to see information about it.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<script>
+
+function showPlanet(name){
+
+let data = {
+
+Mercury:
+"Mercury is the closest planet to the Sun. It is the smallest planet and has extreme temperatures.",
+
+Venus:
+"Venus is the hottest planet because of its thick carbon dioxide atmosphere.",
+
+Earth:
+"Earth is our home planet and the only known planet with life.",
+
+Mars:
+"Mars is called the Red Planet. Scientists are studying it for signs of ancient life.",
+
+Jupiter:
+"Jupiter is the largest planet and has a giant storm called the Great Red Spot.",
+
+Saturn:
+"Saturn is famous for its beautiful rings made of ice and rocks.",
+
+Uranus:
+"Uranus rotates sideways and has a blue-green color due to methane gas.",
+
+Neptune:
+"Neptune is the farthest planet from the Sun and has extremely fast winds."
+
+};
+
+
+document.getElementById("planet-info").innerHTML =
+"<h3>"+name+"</h3><p>"+data[name]+"</p>";
+
+}
+
+</script>
+<!-- =========================
+COSMOS-X V2
+PART 3
+ADVANCED SPACE CSS
+========================= -->
+
+
+<style>
+
+/* SOLAR SYSTEM AREA */
+
+#solar-system{
+    min-height:900px;
+    padding:60px 20px;
+    text-align:center;
+}
+
+
+.space-container{
+
+    position:relative;
+    width:700px;
+    height:700px;
+    margin:auto;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+
+
+/* SUN */
+
+.sun{
+
+    position:absolute;
+
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,#fff700,#ff8800,#ff3300);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:50px;
+
+    box-shadow:
+    0 0 40px orange,
+    0 0 80px yellow;
+
+    animation:pulseSun 3s infinite;
+
+}
+
+
+@keyframes pulseSun{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.15);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+
+
+
+
+/* ORBITS */
+
+
+.orbit{
+
+position:absolute;
+
+border:1px solid rgba(255,255,255,0.25);
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:flex-start;
+
+align-items:center;
+
+animation:rotateOrbit linear infinite;
+
+}
+
+
+
+.planet{
+
+border-radius:50%;
+
+cursor:pointer;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:28px;
+
+transition:.3s;
+
+}
+
+
+.planet:hover{
+
+transform:scale(1.5);
+
+filter:drop-shadow(0 0 15px white);
+
+}
+
+
+
+
+
+/* ORBIT SIZES */
+
+
+.mercury-orbit{
+
+width:150px;
+height:150px;
+
+animation-duration:8s;
+
+}
+
+
+.venus-orbit{
+
+width:220px;
+height:220px;
+
+animation-duration:12s;
+
+}
+
+
+.earth-orbit{
+
+width:300px;
+height:300px;
+
+animation-duration:18s;
+
+}
+
+
+.mars-orbit{
+
+width:380px;
+height:380px;
+
+animation-duration:25s;
+
+}
+
+
+.jupiter-orbit{
+
+width:470px;
+height:470px;
+
+animation-duration:35s;
+
+}
+
+
+.saturn-orbit{
+
+width:560px;
+height:560px;
+
+animation-duration:45s;
+
+}
+
+
+.uranus-orbit{
+
+width:630px;
+height:630px;
+
+animation-duration:55s;
+
+}
+
+
+.neptune-orbit{
+
+width:700px;
+height:700px;
+
+animation-duration:65s;
+
+}
+
+
+
+@keyframes rotateOrbit{
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+
+
+
+
+/* PLANET COLORS */
+
+
+.mercury{
+
+width:20px;
+height:20px;
+
+background:#aaa;
+
+}
+
+
+
+.venus{
+
+width:35px;
+height:35px;
+
+background:#d99b55;
+
+}
+
+
+
+.earth{
+
+width:40px;
+height:40px;
+
+}
+
+
+
+.mars{
+
+width:32px;
+height:32px;
+
+background:#b7472a;
+
+}
+
+
+
+.jupiter{
+
+width:65px;
+height:65px;
+
+background:#d8b08c;
+
+}
+
+
+
+.saturn{
+
+width:55px;
+height:55px;
+
+background:#e3c27b;
+
+}
+
+
+
+.uranus{
+
+width:45px;
+height:45px;
+
+background:#7ddde0;
+
+}
+
+
+
+.neptune{
+
+width:45px;
+height:45px;
+
+background:#4169e1;
+
+}
+
+
+
+
+/* PLANET INFORMATION BOX */
+
+
+#planet-info{
+
+margin:40px auto;
+
+max-width:700px;
+
+padding:25px;
+
+border-radius:20px;
+
+background:
+rgba(255,255,255,0.08);
+
+backdrop-filter:blur(10px);
+
+box-shadow:
+0 0 30px rgba(0,150,255,.4);
+
+font-size:18px;
+
+}
+
+
+
+
+
+/* STAR BACKGROUND */
+
+body{
+
+background:
+
+radial-gradient(circle at top,#101a40,#02030b 60%);
+
+overflow-x:hidden;
+
+}
+
+
+
+</style>
+<!-- =========================
+COSMOS-X V2
+PART 4
+GALAXY BACKGROUND + STAR EFFECTS
+========================= -->
+
+
+<style>
+
+/* STAR FIELD */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+background-image:
+
+radial-gradient(white 1px, transparent 1px),
+radial-gradient(white 1px, transparent 1px),
+radial-gradient(white 2px, transparent 2px);
+
+background-size:
+
+80px 80px,
+140px 140px,
+220px 220px;
+
+background-position:
+
+0 0,
+40px 60px,
+90px 130px;
+
+opacity:.35;
+
+animation:
+moveStars 120s linear infinite;
+
+z-index:-1;
+
+}
+
+
+
+@keyframes moveStars{
+
+from{
+
+transform:translateY(0);
+
+}
+
+to{
+
+transform:translateY(-500px);
+
+}
+
+}
+
+
+
+
+
+/* MAIN SECTION DESIGN */
+
+
+.section{
+
+padding:80px 30px;
+
+color:white;
+
+}
+
+
+
+.section h2{
+
+font-size:45px;
+
+letter-spacing:3px;
+
+text-shadow:
+
+0 0 10px cyan,
+0 0 30px blue;
+
+}
+
+
+
+
+
+/* INTRO TEXT */
+
+
+.intro{
+
+max-width:800px;
+
+margin:20px auto 50px;
+
+font-size:20px;
+
+line-height:1.6;
+
+color:#d7eaff;
+
+}
+
+
+
+
+
+/* GLASS CARD EFFECT */
+
+
+.card{
+
+background:
+
+rgba(255,255,255,.08);
+
+border:
+
+1px solid rgba(255,255,255,.2);
+
+border-radius:25px;
+
+padding:30px;
+
+backdrop-filter:blur(12px);
+
+transition:.4s;
+
+}
+
+
+
+.card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:
+
+0 0 40px cyan;
+
+}
+
+
+
+
+
+/* BUTTON STYLE */
+
+
+.cosmos-btn{
+
+padding:15px 35px;
+
+border-radius:50px;
+
+border:none;
+
+cursor:pointer;
+
+font-size:18px;
+
+background:
+
+linear-gradient(45deg,#00ffff,#0066ff);
+
+color:white;
+
+box-shadow:
+
+0 0 20px cyan;
+
+transition:.3s;
+
+}
+
+
+
+.cosmos-btn:hover{
+
+transform:scale(1.1);
+
+box-shadow:
+
+0 0 50px cyan;
+
+}
+
+
+
+
+
+/* SMOOTH SCROLL */
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+
+
+
+
+/* MOBILE SUPPORT */
+
+
+@media(max-width:800px){
+
+
+.space-container{
+
+width:350px;
+
+height:350px;
+
+transform:scale(.5);
+
+}
+
+
+
+.section h2{
+
+font-size:32px;
+
+}
+
+
+
+}
+
+
+
+</style>
+<!-- =========================
+COSMOS-X V2
+PART 5
+SPACE MISSIONS SECTION
+========================= -->
+
+
+<section id="missions" class="section">
+
+<h2>🚀 Space Missions</h2>
+
+<p class="intro">
+Humanity has always looked beyond Earth.
+These missions helped us understand the universe.
+</p>
+
+
+<div class="mission-grid">
+
+
+<div class="card">
+
+<h3>🌙 Apollo 11</h3>
+
+<p>
+The first successful human mission to land astronauts on the Moon.
+Neil Armstrong became the first person to walk on the lunar surface in 1969.
+</p>
+
+<button class="cosmos-btn"
+onclick="missionInfo('Apollo 11')">
+Explore
+</button>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>🔴 Mars Rover Missions</h3>
+
+<p>
+Robotic explorers like Curiosity and Perseverance study Mars,
+searching for clues about the planet's ancient history.
+</p>
+
+<button class="cosmos-btn"
+onclick="missionInfo('Mars Rover')">
+Explore
+</button>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>🛰 James Webb Telescope</h3>
+
+<p>
+The James Webb Space Telescope observes distant galaxies,
+stars, and planets with incredible detail.
+</p>
+
+<button class="cosmos-btn"
+onclick="missionInfo('James Webb')">
+Explore
+</button>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>🌌 Voyager</h3>
+
+<p>
+Voyager spacecraft are traveling beyond the Solar System,
+sending information from deep space.
+</p>
+
+<button class="cosmos-btn"
+onclick="missionInfo('Voyager')">
+Explore
+</button>
+
+</div>
+
+
+
+</div>
+
+
+<div id="mission-result" class="card">
+
+<h3>Select a mission</h3>
+
+<p>
+Click Explore to learn more.
+</p>
+
+</div>
+
+
+</section>
+
+
+
+
+<style>
+
+
+.mission-grid{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:30px;
+
+max-width:1200px;
+
+margin:auto;
+
+}
+
+
+
+.mission-grid .card{
+
+min-height:280px;
+
+}
+
+
+
+#mission-result{
+
+max-width:800px;
+
+margin:50px auto;
+
+text-align:center;
+
+}
+
+
+
+</style>
+
+
+
+
+
+<script>
+
+
+function missionInfo(name){
+
+
+let info={
+
+
+"Apollo 11":
+
+"Apollo 11 was launched by NASA in 1969. It carried astronauts Neil Armstrong, Buzz Aldrin, and Michael Collins.",
+
+
+"Mars Rover":
+
+"Perseverance landed on Mars in 2021. It collects rock samples and searches for signs of ancient microbial life.",
+
+
+"James Webb":
+
+"JWST launched in 2021 and studies the universe using infrared technology.",
+
+
+"Voyager":
+
+"Voyager 1 and 2 launched in 1977 and are among the farthest human-made objects from Earth."
+
+
+};
+
+
+
+document.getElementById("mission-result").innerHTML=
+
+"<h3>"+name+"</h3><p>"+info[name]+"</p>";
+
+
+}
+
+
+</script>
+<!-- =========================
+COSMOS-X V2
+PART 6
+BLACK HOLE + GALAXY EXPLORER
+========================= -->
+
+
+<section id="blackholes" class="section">
+
+<h2>🕳️ Black Hole Explorer</h2>
+
+
+<p class="intro">
+
+Black holes are regions of space where gravity is so powerful
+that nothing, not even light, can escape.
+
+</p>
+
+
+
+<div class="blackhole-container">
+
+
+<div class="black-hole">
+
+<div class="event-horizon">
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<div class="card black-info">
+
+<h3>What is a Black Hole?</h3>
+
+<p>
+
+A black hole forms when a massive star collapses under its own gravity.
+The center contains a point called a singularity where our current physics
+cannot fully explain what happens.
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section id="galaxy" class="section">
+
+
+<h2>🌌 Galaxy Explorer</h2>
+
+
+<p class="intro">
+
+Galaxies are enormous collections of stars, planets,
+gas, dust, and dark matter held together by gravity.
+
+</p>
+
+
+
+<div class="galaxy-grid">
+
+
+<div class="card">
+
+<h3>🌠 Milky Way</h3>
+
+<p>
+
+Our home galaxy contains hundreds of billions of stars,
+including our Sun.
+
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>🔵 Andromeda</h3>
+
+<p>
+
+The Andromeda Galaxy is the nearest large galaxy to the Milky Way.
+It is expected to collide with our galaxy in the future.
+
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>🌀 Spiral Galaxies</h3>
+
+<p>
+
+Spiral galaxies have beautiful arms containing young stars,
+gas clouds, and cosmic dust.
+
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<style>
+
+
+.blackhole-container{
+
+height:400px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+
+
+.black-hole{
+
+width:220px;
+
+height:220px;
+
+border-radius:50%;
+
+background:black;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+
+box-shadow:
+
+0 0 40px purple,
+0 0 100px blue;
+
+
+animation:blackPulse 4s infinite;
+
+}
+
+
+
+
+.event-horizon{
+
+width:150px;
+
+height:150px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(circle,
+black 40%,
+purple,
+orange);
+
+}
+
+
+
+@keyframes blackPulse{
+
+
+0%{
+
+transform:scale(1);
+
+}
+
+
+50%{
+
+transform:scale(1.15);
+
+}
+
+
+100%{
+
+transform:scale(1);
+
+}
+
+
+}
+
+
+
+
+
+.galaxy-grid{
+
+
+display:grid;
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(260px,1fr));
+
+gap:30px;
+
+max-width:1000px;
+
+margin:auto;
+
+
+}
+
+
+
+.black-info{
+
+max-width:800px;
+
+margin:auto;
+
+text-align:center;
+
+}
+
+
+
+</style>
+<!-- =========================
+COSMOS-X V2
+PART 7
+SPACE FACT GENERATOR + ASTEROID BELT
+========================= -->
+
+
+<section id="facts" class="section">
+
+
+<h2>✨ Cosmic Facts Generator</h2>
+
+
+<p class="intro">
+
+Discover amazing facts about the universe with one click.
+
+</p>
+
+
+
+<div class="card fact-box">
+
+
+<h3 id="fact-title">
+Universe Fact
+</h3>
+
+
+<p id="fact-text">
+
+Click the button to reveal a cosmic mystery.
+
+</p>
+
+
+
+<button class="cosmos-btn"
+onclick="generateFact()">
+
+Generate Fact 🌌
+
+</button>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+<section id="asteroids" class="section">
+
+
+<h2>☄️ Asteroid Belt</h2>
+
+
+<p class="intro">
+
+Between Mars and Jupiter lies the asteroid belt,
+a region filled with millions of rocky objects.
+
+</p>
+
+
+
+<div class="asteroid-field">
+
+
+<div class="asteroid a1">☄️</div>
+
+<div class="asteroid a2">☄️</div>
+
+<div class="asteroid a3">☄️</div>
+
+<div class="asteroid a4">☄️</div>
+
+<div class="asteroid a5">☄️</div>
+
+
+</div>
+
+
+
+<div class="card">
+
+
+<h3>Did You Know?</h3>
+
+<p>
+
+The largest object in the asteroid belt is Ceres,
+which is classified as a dwarf planet.
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<style>
+
+
+.fact-box{
+
+max-width:700px;
+
+margin:auto;
+
+text-align:center;
+
+}
+
+
+
+
+
+.asteroid-field{
+
+
+height:300px;
+
+position:relative;
+
+max-width:800px;
+
+margin:auto;
+
+}
+
+
+
+.asteroid{
+
+position:absolute;
+
+font-size:35px;
+
+animation:floatAsteroid 6s infinite alternate;
+
+}
+
+
+
+.a1{
+
+left:10%;
+
+top:30%;
+
+animation-duration:5s;
+
+}
+
+
+
+.a2{
+
+left:30%;
+
+top:60%;
+
+animation-duration:7s;
+
+}
+
+
+
+.a3{
+
+left:50%;
+
+top:20%;
+
+animation-duration:6s;
+
+}
+
+
+
+.a4{
+
+left:70%;
+
+top:70%;
+
+animation-duration:8s;
+
+}
+
+
+
+.a5{
+
+left:85%;
+
+top:40%;
+
+animation-duration:9s;
+
+}
+
+
+
+
+
+@keyframes floatAsteroid{
+
+
+from{
+
+transform:translateY(0) rotate(0deg);
+
+}
+
+
+to{
+
+transform:translateY(-40px) rotate(180deg);
+
+}
+
+
+}
+
+
+</style>
+
+
+
+
+
+<script>
+
+
+function generateFact(){
+
+
+let facts=[
+
+
+"🌎 Earth is the only known planet with life.",
+
+
+"☀️ The Sun contains about 99.8% of the Solar System's mass.",
+
+
+"🌌 The observable universe contains billions of galaxies.",
+
+
+"🪐 Saturn's rings are mostly made of ice particles.",
+
+
+"🚀 A day on Venus is longer than its year.",
+
+
+"⭐ Some stars are hundreds of times larger than our Sun.",
+
+
+"🌑 The Moon is slowly moving away from Earth every year."
+
+
+];
+
+
+
+let random=
+
+facts[Math.floor(Math.random()*facts.length)];
+
+
+
+document.getElementById("fact-text").innerHTML=random;
+
+
+
+}
+
+
+</script>
+<!-- =========================
+COSMOS-X V2
+PART 8
+SPACE TIMELINE + FUTURE MISSIONS
+========================= -->
+
+
+<section id="timeline" class="section">
+
+
+<h2>📜 Space Exploration Timeline</h2>
+
+
+<p class="intro">
+
+A journey through humanity's greatest achievements beyond Earth.
+
+</p>
+
+
+
+<div class="timeline">
+
+
+
+<div class="timeline-item card">
+
+<h3>1957 🛰</h3>
+
+<p>
+Sputnik 1 became the first artificial satellite launched into space.
+</p>
+
+</div>
+
+
+
+
+<div class="timeline-item card">
+
+<h3>1961 👨‍🚀</h3>
+
+<p>
+Yuri Gagarin became the first human to travel into space.
+</p>
+
+</div>
+
+
+
+
+<div class="timeline-item card">
+
+<h3>1969 🌙</h3>
+
+<p>
+Apollo 11 successfully landed humans on the Moon.
+</p>
+
+</div>
+
+
+
+
+<div class="timeline-item card">
+
+<h3>1990 🔭</h3>
+
+<p>
+The Hubble Space Telescope started transforming our view of the universe.
+</p>
+
+</div>
+
+
+
+
+<div class="timeline-item card">
+
+<h3>2021 🌌</h3>
+
+<p>
+The James Webb Space Telescope launched to study distant galaxies.
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section id="future" class="section">
+
+
+<h2>🚀 Future of Space</h2>
+
+
+
+<div class="future-grid">
+
+
+<div class="card">
+
+<h3>🌕 Moon Bases</h3>
+
+<p>
+Future missions may create permanent research stations on the Moon.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>🔴 Mars Colonies</h3>
+
+<p>
+Scientists are studying how humans could live on Mars in the future.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>🌎 Exoplanet Search</h3>
+
+<p>
+Powerful telescopes are searching for planets that may support life.
+</p>
+
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+<style>
+
+
+.timeline{
+
+max-width:900px;
+
+margin:auto;
+
+display:flex;
+
+flex-direction:column;
+
+gap:25px;
+
+}
+
+
+
+.timeline-item{
+
+border-left:5px solid cyan;
+
+}
+
+
+
+
+
+.future-grid{
+
+
+display:grid;
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:30px;
+
+max-width:1000px;
+
+margin:auto;
+
+
+}
+
+
+
+</style>
+<!-- =========================
+COSMOS-X V2
+PART 9
+EXOPLANET EXPLORER + SPACE TOOLS
+========================= -->
+
+
+<section id="exoplanets" class="section">
+
+
+<h2>🪐 Exoplanet Explorer</h2>
+
+
+<p class="intro">
+
+Exoplanets are planets that orbit stars outside our Solar System.
+Thousands have been discovered by scientists.
+
+</p>
+
+
+
+<div class="planet-tools">
+
+
+
+<div class="card">
+
+
+<h3>🌍 Kepler-186f</h3>
+
+<p>
+
+One of the first Earth-sized planets discovered in a star's habitable zone.
+
+</p>
+
+
+<button class="cosmos-btn"
+onclick="planetData('Kepler-186f')">
+
+Explore
+
+</button>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<h3>🟣 Proxima Centauri b</h3>
+
+<p>
+
+The closest known exoplanet to our Solar System.
+
+</p>
+
+
+<button class="cosmos-btn"
+onclick="planetData('Proxima Centauri b')">
+
+Explore
+
+</button>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<h3>🔥 55 Cancri e</h3>
+
+<p>
+
+A super-Earth planet with extreme temperatures.
+
+</p>
+
+
+<button class="cosmos-btn"
+onclick="planetData('55 Cancri e')">
+
+Explore
+
+</button>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+<div id="exo-result" class="card">
+
+
+<h3>Select an Exoplanet</h3>
+
+<p>
+
+Click Explore to discover more.
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section id="space-tools" class="section">
+
+
+<h2>🧮 Space Calculator</h2>
+
+
+<div class="card calculator">
+
+
+<h3>Age on Another Planet</h3>
+
+
+<p>
+
+Enter your Earth age:
+
+</p>
+
+
+<input id="earthAge"
+type="number"
+placeholder="Age">
+
+
+<br><br>
+
+
+<button class="cosmos-btn"
+onclick="calculateAge()">
+
+Calculate
+
+</button>
+
+
+
+<h3 id="age-result">
+
+</h3>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<style>
+
+
+.planet-tools{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:30px;
+
+max-width:1000px;
+
+margin:auto;
+
+}
+
+
+
+#exo-result{
+
+max-width:800px;
+
+margin:40px auto;
+
+text-align:center;
+
+}
+
+
+
+.calculator{
+
+max-width:500px;
+
+margin:auto;
+
+text-align:center;
+
+}
+
+
+
+input{
+
+padding:15px;
+
+border-radius:10px;
+
+border:none;
+
+font-size:18px;
+
+width:200px;
+
+}
+
+
+
+
+
+</style>
+
+
+
+
+
+
+<script>
+
+
+function planetData(name){
+
+
+let data={
+
+
+"Kepler-186f":
+
+"Kepler-186f is an Earth-sized exoplanet located about 500 light-years away.",
+
+
+"Proxima Centauri b":
+
+"Proxima Centauri b orbits the closest star system to our Sun.",
+
+
+"55 Cancri e":
+
+"55 Cancri e is a rocky super-Earth that is extremely hot."
+
+
+};
+
+
+
+document.getElementById("exo-result").innerHTML=
+
+"<h3>"+name+"</h3><p>"+data[name]+"</p>";
+
+}
+
+
+
+
+
+function calculateAge(){
+
+
+let age=
+
+document.getElementById("earthAge").value;
+
+
+
+if(age===""){
+
+document.getElementById("age-result").innerHTML=
+
+"Enter your age first.";
+
+return;
+
+}
+
+
+
+let mercury=
+
+(age*365)/88;
+
+let mars=
+
+(age*365)/687;
+
+let jupiter=
+
+(age*365)/4333;
+
+
+
+document.getElementById("age-result").innerHTML=
+
+"Mercury age: "+
+mercury.toFixed(1)+
+" years<br>"+
+"Mars age: "+
+mars.toFixed(1)+
+" years<br>"+
+"Jupiter age: "+
+jupiter.toFixed(1)+
+" years";
+
+}
+
+
+
+</script>
+<!-- =========================
+COSMOS-X V2
+PART 10
+FINAL POLISH + FOOTER
+========================= -->
+
+
+<section id="cosmos-final" class="section">
+
+
+<h2>🌌 COSMOS-X Mission Complete</h2>
+
+
+<p class="intro">
+
+The universe is filled with endless mysteries.
+Keep exploring, keep learning, and keep looking beyond the stars.
+
+</p>
+
+
+
+
+<div class="card final-card">
+
+
+<h3>🚀 COSMOS-X</h3>
+
+
+<p>
+
+An interactive journey through planets, galaxies,
+black holes, missions, and the future of space exploration.
+
+</p>
+
+
+<p>
+
+Version: <b>V2.0</b>
+
+</p>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+<footer>
+
+
+<h3>🌠 COSMOS-X</h3>
+
+<p>
+
+Exploring the universe through technology and imagination.
+
+</p>
+
+
+<p>
+
+© 2026 COSMOS-X Project
+
+</p>
+
+
+</footer>
+
+
+
+
+
+
+
+<style>
+
+
+#cosmos-final{
+
+text-align:center;
+
+}
+
+
+
+.final-card{
+
+max-width:700px;
+
+margin:auto;
+
+}
+
+
+
+footer{
+
+
+padding:40px;
+
+text-align:center;
+
+
+background:
+
+rgba(0,0,0,.5);
+
+
+border-top:
+
+1px solid rgba(255,255,255,.2);
+
+
+color:white;
+
+
+}
+
+
+
+
+footer h3{
+
+
+font-size:30px;
+
+
+text-shadow:
+
+0 0 20px cyan;
+
+
+}
+
+
+
+
+/* FINAL WEBSITE ENTRANCE ANIMATION */
+
+
+.section{
+
+
+animation:
+
+fadeIn 1.5s ease;
+
+
+}
+
+
+
+@keyframes fadeIn{
+
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
+}
+
+
+
+
+</style>
+
+
+
+
+
+</body>
+
+</html>
+<!-- =========================
+COSMOS-X V3
+PART 11
+3D EARTH EXPERIENCE
+========================= -->
+
+
+<section id="earth-explorer" class="section">
+
+<h2>🌍 3D Earth Explorer</h2>
+
+<p class="intro">
+Explore our home planet. Rotate the Earth and learn about its features.
+</p>
+
+
+
+<div class="earth-container">
+
+
+<div class="earth-globe">
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>🌎 About Earth</h3>
+
+<p>
+Earth is the third planet from the Sun and the only known planet
+with life. It has oceans, continents, and a protective atmosphere.
+</p>
+
+</div>
+
+
+</section>
+
+
+
+
+
+<style>
+
+
+.earth-container{
+
+height:450px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+
+
+.earth-globe{
+
+width:250px;
+
+height:250px;
+
+border-radius:50%;
+
+
+background:
+
+linear-gradient(
+120deg,
+#0055ff,
+#00aaff,
+#228b22,
+#004400
+);
+
+
+box-shadow:
+
+0 0 40px cyan,
+0 0 100px blue;
+
+
+animation:
+
+rotateEarth 10s linear infinite;
+
+
+}
+
+
+
+@keyframes rotateEarth{
+
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+
+}
+
+
+
+
+</style>
+<!-- =========================
+COSMOS-X V3
+PART 12
+ROCKET LAUNCH SIMULATOR
+========================= -->
+
+
+<section id="rocket-launch" class="section">
+
+
+<h2>🚀 Rocket Launch Simulator</h2>
+
+
+<p class="intro">
+
+Experience a virtual rocket launch from Earth into space.
+
+</p>
+
+
+
+
+<div class="launch-area">
+
+
+<div id="rocket">
+
+🚀
+
+</div>
+
+
+</div>
+
+
+
+
+<button class="cosmos-btn"
+onclick="launchRocket()">
+
+Launch Rocket 🚀
+
+</button>
+
+
+
+<div id="launch-status" class="card">
+
+<h3>Mission Control</h3>
+
+<p>
+Rocket ready for launch.
+</p>
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+<style>
+
+
+.launch-area{
+
+height:500px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:flex-end;
+
+overflow:hidden;
+
+}
+
+
+
+#rocket{
+
+font-size:80px;
+
+transition:5s;
+
+}
+
+
+
+.launching{
+
+transform:
+
+translateY(-450px)
+rotate(-15deg);
+
+}
+
+
+
+#launch-status{
+
+max-width:600px;
+
+margin:40px auto;
+
+text-align:center;
+
+}
+
+
+
+
+
+</style>
+
+
+
+
+
+
+<script>
+
+
+function launchRocket(){
+
+
+let rocket=
+
+document.getElementById("rocket");
+
+
+let status=
+
+document.getElementById("launch-status");
+
+
+
+rocket.classList.add("launching");
+
+
+
+status.innerHTML=
+
+"<h3>🚀 Launch Successful</h3>"+
+"<p>Stage 1 ignition complete...<br>"+
+"Leaving Earth's atmosphere...<br>"+
+"Entering space orbit.</p>";
+
+
+
+setTimeout(()=>{
+
+
+rocket.classList.remove("launching");
+
+
+},6000);
+
+
+
+}
+
+
+</script>
+<!-- =========================
+COSMOS-X V3
+PART 13
+MISSION CONTROL DASHBOARD
+========================= -->
+
+
+<section id="mission-control" class="section">
+
+
+<h2>🛰 Mission Control Center</h2>
+
+
+<p class="intro">
+
+Monitor spacecraft systems, communication signals,
+and deep space missions.
+
+</p>
+
+
+
+
+
+<div class="control-grid">
+
+
+
+<div class="card control-panel">
+
+<h3>🚀 Rocket Status</h3>
+
+<p id="rocket-status">
+
+ONLINE
+
+</p>
+
+</div>
+
+
+
+
+
+<div class="card control-panel">
+
+<h3>📡 Communication</h3>
+
+<p id="signal-status">
+
+Signal Stable
+
+</p>
+
+</div>
+
+
+
+
+
+<div class="card control-panel">
+
+<h3>🌌 Location</h3>
+
+<p id="location-status">
+
+Low Earth Orbit
+
+</p>
+
+</div>
+
+
+
+
+
+<div class="card control-panel">
+
+<h3>⚡ Energy</h3>
+
+<p id="energy-status">
+
+98%
+
+</p>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<button class="cosmos-btn"
+onclick="scanSpace()">
+
+Start Deep Space Scan 🔭
+
+</button>
+
+
+
+
+<div id="scan-result" class="card">
+
+
+<h3>Scanner Ready</h3>
+
+<p>
+Waiting for command...
+</p>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<style>
+
+
+.control-grid{
+
+
+display:grid;
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:25px;
+
+max-width:1000px;
+
+margin:40px auto;
+
+
+}
+
+
+
+.control-panel{
+
+text-align:center;
+
+min-height:150px;
+
+}
+
+
+
+.control-panel p{
+
+
+font-size:22px;
+
+color:#00ffff;
+
+}
+
+
+
+#scan-result{
+
+max-width:700px;
+
+margin:40px auto;
+
+text-align:center;
+
+}
+
+
+
+</style>
+
+
+
+
+
+
+
+<script>
+
+
+function scanSpace(){
+
+
+let discoveries=[
+
+
+"🌑 Unknown asteroid detected near Jupiter.",
+
+
+"🌌 New galaxy signal received.",
+
+
+"⭐ Massive star formation detected.",
+
+
+"🪐 Possible exoplanet candidate found.",
+
+
+"☄️ Comet activity detected."
+
+
+];
+
+
+let result=
+
+discoveries[Math.floor(Math.random()*discoveries.length)];
+
+
+
+document.getElementById("scan-result").innerHTML=
+
+"<h3>🔭 Scan Complete</h3>"+
+"<p>"+result+"</p>";
+
+
+
+document.getElementById("signal-status").innerHTML=
+
+"Signal Active";
+
+
+document.getElementById("location-status").innerHTML=
+
+"Deep Space Mode";
+
+
+}
+
+
+</script>
+<!-- =========================
+COSMOS-X V3
+PART 14
+TELESCOPE MODE + STAR DISCOVERY
+========================= -->
+
+
+<section id="telescope" class="section">
+
+
+<h2>🔭 COSMOS Telescope Mode</h2>
+
+
+<p class="intro">
+
+Use the virtual telescope to observe distant objects in space.
+
+</p>
+
+
+
+
+
+<div class="telescope-view">
+
+
+<div id="space-object">
+
+🌌
+
+</div>
+
+
+</div>
+
+
+
+
+
+<button class="cosmos-btn"
+onclick="observeSpace()">
+
+Observe Object 🔭
+
+</button>
+
+
+
+
+
+<div id="observation-result" class="card">
+
+
+<h3>Observation System</h3>
+
+<p>
+
+Telescope ready.
+
+</p>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<section id="stars" class="section">
+
+
+<h2>⭐ Star Discovery System</h2>
+
+
+<div class="star-grid">
+
+
+<div class="card">
+
+<h3>☀️ Sun</h3>
+
+<p>
+
+Our nearest star and the source of energy for Earth.
+
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>🔴 Betelgeuse</h3>
+
+<p>
+
+A giant red star that may end its life as a supernova.
+
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>🔵 Sirius</h3>
+
+<p>
+
+The brightest star visible from Earth at night.
+
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<style>
+
+
+.telescope-view{
+
+
+height:350px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+
+}
+
+
+
+#space-object{
+
+
+font-size:130px;
+
+
+animation:
+
+floatingSpace 4s infinite alternate;
+
+
+}
+
+
+
+
+@keyframes floatingSpace{
+
+
+from{
+
+transform:translateY(20px);
+
+}
+
+
+to{
+
+transform:translateY(-20px);
+
+}
+
+
+}
+
+
+
+
+#observation-result{
+
+max-width:700px;
+
+margin:40px auto;
+
+text-align:center;
+
+}
+
+
+
+
+
+.star-grid{
+
+
+display:grid;
+
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(250px,1fr));
+
+
+gap:30px;
+
+
+max-width:1000px;
+
+
+margin:auto;
+
+
+}
+
+
+
+</style>
+
+
+
+
+
+
+
+<script>
+
+
+function observeSpace(){
+
+
+let objects=[
+
+
+{
+name:"Andromeda Galaxy 🌌",
+info:"A giant galaxy located about 2.5 million light-years away."
+},
+
+
+{
+name:"Saturn 🪐",
+info:"A gas giant famous for its spectacular ring system."
+},
+
+
+{
+name:"Nebula ☁️",
+info:"A cloud of gas and dust where new stars can form."
+},
+
+
+{
+name:"Black Hole 🕳️",
+info:"A region where gravity is so strong that light cannot escape."
+}
+
+
+];
+
+
+
+let chosen=
+
+objects[Math.floor(Math.random()*objects.length)];
+
+
+
+document.getElementById("observation-result").innerHTML=
+
+"<h3>"+chosen.name+"</h3>"+
+"<p>"+chosen.info+"</p>";
+
+
+
+}
+
+</script>
+<!-- =========================
+COSMOS-X V3
+PART 15
+PLANET DATABASE + SPACE STATISTICS
+========================= -->
+
+
+<section id="planet-database" class="section">
+
+
+<h2>🪐 Advanced Planet Database</h2>
+
+
+<p class="intro">
+
+Explore detailed information about planets in our Solar System.
+
+</p>
+
+
+
+
+<div class="database-grid">
+
+
+
+<div class="card planet-card"
+onclick="planetProfile('Earth')">
+
+<h3>🌍 Earth</h3>
+
+<p>
+
+Massive oceans, atmosphere, and life.
+
+</p>
+
+</div>
+
+
+
+
+<div class="card planet-card"
+onclick="planetProfile('Mars')">
+
+<h3>🔴 Mars</h3>
+
+<p>
+
+The Red Planet with ancient valleys and ice caps.
+
+</p>
+
+</div>
+
+
+
+
+<div class="card planet-card"
+onclick="planetProfile('Jupiter')">
+
+<h3>🟤 Jupiter</h3>
+
+<p>
+
+The largest planet with powerful storms.
+
+</p>
+
+</div>
+
+
+
+
+<div class="card planet-card"
+onclick="planetProfile('Saturn')">
+
+<h3>🪐 Saturn</h3>
+
+<p>
+
+A gas giant with magnificent rings.
+
+</p>
+
+</div>
+
+
+
+</div>
+
+
+
+
+<div id="planet-profile" class="card">
+
+
+<h3>Select a Planet</h3>
+
+<p>
+
+Click a planet to view data.
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="space-statistics" class="section">
+
+
+<h2>📊 Space Statistics</h2>
+
+
+
+<div class="stats-grid">
+
+
+<div class="card">
+
+<h3>🌌 Galaxies</h3>
+
+<p class="number">
+
+2 Trillion+
+
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>⭐ Stars</h3>
+
+<p class="number">
+
+Billions × Billions
+
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>🌍 Planets</h3>
+
+<p class="number">
+
+Thousands Discovered
+
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>🚀 Space Missions</h3>
+
+<p class="number">
+
+Hundreds Completed
+
+</p>
+
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<style>
+
+
+.database-grid{
+
+
+display:grid;
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(220px,1fr));
+
+
+gap:25px;
+
+
+max-width:1000px;
+
+
+margin:auto;
+
+
+}
+
+
+
+.planet-card{
+
+
+cursor:pointer;
+
+transition:.3s;
+
+
+}
+
+
+
+.planet-card:hover{
+
+
+transform:scale(1.05);
+
+
+}
+
+
+
+#planet-profile{
+
+
+max-width:750px;
+
+margin:40px auto;
+
+text-align:center;
+
+
+}
+
+
+
+.stats-grid{
+
+
+display:grid;
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(200px,1fr));
+
+
+gap:25px;
+
+
+max-width:1000px;
+
+
+margin:auto;
+
+
+}
+
+
+
+.number{
+
+
+font-size:25px;
+
+color:#00ffff;
+
+}
+
+
+
+</style>
+
+
+
+
+
+
+
+<script>
+
+
+function planetProfile(name){
+
+
+let planets={
+
+
+
+Earth:
+
+"Diameter: 12,742 km | Distance from Sun: 149.6 million km | Has life and liquid water.",
+
+
+
+Mars:
+
+"Diameter: 6,779 km | Known as the Red Planet | Has the largest volcano in the Solar System.",
+
+
+
+Jupiter:
+
+"Diameter: 139,820 km | Largest planet | Famous for the Great Red Spot.",
+
+
+
+Saturn:
+
+"Diameter: 116,460 km | Famous for its icy rings."
+
+
+
+};
+
+
+
+document.getElementById("planet-profile").innerHTML=
+
+"<h3>"+name+"</h3>"+
+"<p>"+planets[name]+"</p>";
+
+
+
+}
+
+
+</script>
+<!-- =========================
+COSMOS-X V3
+PART 16
+UNIVERSE MAP + EXPLORATION MODE
+========================= -->
+
+
+<section id="universe-map" class="section">
+
+
+<h2>🌌 Universal Navigation System</h2>
+
+
+<p class="intro">
+
+Navigate through different regions of the universe
+and discover cosmic objects.
+
+</p>
+
+
+
+
+<div class="universe-map-box">
+
+
+<div class="cosmic-zone"
+onclick="exploreZone('Solar System')">
+
+☀️
+<br>
+Solar System
+
+</div>
+
+
+
+<div class="cosmic-zone"
+onclick="exploreZone('Milky Way Galaxy')">
+
+🌌
+<br>
+Milky Way
+
+</div>
+
+
+
+<div class="cosmic-zone"
+onclick="exploreZone('Nebula Region')">
+
+☁️
+<br>
+Nebula Zone
+
+</div>
+
+
+
+<div class="cosmic-zone"
+onclick="exploreZone('Deep Space')">
+
+✨
+<br>
+Deep Space
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div id="zone-result" class="card">
+
+<h3>Select a Location</h3>
+
+<p>
+
+Choose a cosmic zone to explore.
+
+</p>
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<section id="exploration-mode" class="section">
+
+
+<h2>🎮 COSMOS Exploration Mode</h2>
+
+
+<p class="intro">
+
+Complete missions and collect cosmic discoveries.
+
+</p>
+
+
+
+
+
+<div class="card game-panel">
+
+
+<h3>Mission: Discover 5 Cosmic Objects</h3>
+
+
+<p id="mission-count">
+
+Discoveries: 0 / 5
+
+</p>
+
+
+
+<button class="cosmos-btn"
+onclick="discoverObject()">
+
+Discover Object 🌠
+
+</button>
+
+
+
+<h3 id="game-message">
+
+Waiting for explorer...
+
+</h3>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<style>
+
+
+.universe-map-box{
+
+
+display:grid;
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(200px,1fr));
+
+
+gap:30px;
+
+
+max-width:900px;
+
+
+margin:40px auto;
+
+
+}
+
+
+
+.cosmic-zone{
+
+
+height:180px;
+
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+
+flex-direction:column;
+
+
+font-size:25px;
+
+
+cursor:pointer;
+
+
+background:
+
+rgba(255,255,255,.08);
+
+
+border-radius:25px;
+
+
+transition:.4s;
+
+
+border:
+
+1px solid rgba(255,255,255,.2);
+
+
+}
+
+
+
+.cosmic-zone:hover{
+
+
+transform:translateY(-15px) scale(1.05);
+
+
+box-shadow:
+
+0 0 40px cyan;
+
+
+}
+
+
+
+#zone-result{
+
+
+max-width:700px;
+
+margin:40px auto;
+
+text-align:center;
+
+
+}
+
+
+
+.game-panel{
+
+
+max-width:600px;
+
+margin:auto;
+
+text-align:center;
+
+
+}
+
+
+
+</style>
+
+
+
+
+
+
+
+<script>
+
+
+function exploreZone(zone){
+
+
+let zones={
+
+
+"Solar System":
+
+"Our planetary neighborhood containing the Sun and eight planets.",
+
+
+"Milky Way Galaxy":
+
+"A giant spiral galaxy containing our Solar System.",
+
+
+"Nebula Region":
+
+"Massive clouds of gas and dust where stars are born.",
+
+
+"Deep Space":
+
+"The unexplored regions beyond known galaxies."
+
+
+};
+
+
+
+document.getElementById("zone-result").innerHTML=
+
+"<h3>"+zone+"</h3>"+
+"<p>"+zones[zone]+"</p>";
+
+
+}
+
+
+
+
+let discoveries=0;
+
+
+
+function discoverObject(){
+
+
+let objects=[
+
+"🌟 New Star Found",
+
+"🪐 Strange Planet Detected",
+
+"☄️ Ancient Comet Located",
+
+"🌌 Distant Galaxy Found",
+
+"🕳️ Black Hole Signal Received"
+
+];
+
+
+if(discoveries<5){
+
+
+let found=
+
+objects[Math.floor(Math.random()*objects.length)];
+
+
+discoveries++;
+
+
+document.getElementById("mission-count").innerHTML=
+
+"Discoveries: "+discoveries+" / 5";
+
+
+
+document.getElementById("game-message").innerHTML=
+
+found;
+
+
+}
+
+
+
+else{
+
+
+document.getElementById("game-message").innerHTML=
+
+"🏆 Mission Complete! Universe Explorer Rank Achieved.";
+
+
+}
+
+
+
+}
+
+
+</script><!-- =========================
+COSMOS-X V3
+PART 17
+FINAL POLISH + COMPLETION
+========================= -->
+
+
+<section id="completion" class="section">
+
+
+<h2>🏆 COSMOS-X Explorer Complete</h2>
+
+
+<p class="intro">
+
+Congratulations, Explorer.
+You have completed your journey through planets,
+stars, galaxies, and the universe.
+
+</p>
+
+
+
+
+
+<div class="card completion-card">
+
+
+<h3>🌌 COSMOS-X V3</h3>
+
+
+<p>
+
+Features unlocked:
+
+</p>
+
+
+<ul>
+
+<li>🌍 3D Earth Explorer</li>
+
+<li>🚀 Rocket Launch Simulator</li>
+
+<li>🛰 Mission Control Center</li>
+
+<li>🔭 Telescope Observation Mode</li>
+
+<li>🪐 Planet Database</li>
+
+<li>🌌 Universe Navigation</li>
+
+<li>🎮 Exploration Missions</li>
+
+</ul>
+
+
+<p>
+
+Mission Status:
+<b>COMPLETE ✅</b>
+
+</p>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<style>
+
+
+.completion-card{
+
+
+max-width:700px;
+
+margin:auto;
+
+text-align:center;
+
+
+animation:
+
+completionGlow 3s infinite;
+
+
+}
+
+
+
+.completion-card li{
+
+
+list-style:none;
+
+padding:8px;
+
+font-size:18px;
+
+
+}
+
+
+
+@keyframes completionGlow{
+
+
+0%{
+
+box-shadow:
+
+0 0 20px cyan;
+
+}
+
+
+50%{
+
+box-shadow:
+
+0 0 60px blue;
+
+}
+
+
+100%{
+
+box-shadow:
+
+0 0 20px cyan;
+
+}
+
+
+}
+
+
+
+
+
+/* FINAL MOBILE OPTIMIZATION */
+
+
+@media(max-width:600px){
+
+
+body{
+
+font-size:14px;
+
+}
+
+
+
+.cosmos-btn{
+
+
+padding:12px 20px;
+
+
+}
+
+
+
+.card{
+
+
+padding:20px;
+
+
+}
+
+
+
+h2{
+
+font-size:30px!important;
+
+}
+
+
+
+.earth-globe{
+
+width:180px;
+
+height:180px;
+
+}
+
+
+}
+
+
+
+</style>
+
+
+
+
+<footer>
+
+<h2>🌌 COSMOS-X</h2>
+
+<p>
+Created by <b>Arjun</b>
+</p>
+
+<p>
+Exploring the universe through imagination and technology.
+</p>
+
+<p>
+Version V3.0 | 2026
+</p>
+
+</footer>
+
+
+
+
+
+</body>
+
+</html>
